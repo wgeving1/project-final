@@ -18,7 +18,7 @@ export async function authinticateLogin(email, password) {
   const credsMatch = await bcrypt.compare(password, userCreds.passhash)
   if (credsMatch) {
     const token = jwt.sign({
-      'iss': 'debtlyllc',
+      'iss': 'intenselyllc',
       'sub': 'user-auth',
       'iat': Math.floor(Date.now() / 1000),
       'exp': Math.floor(Date.now() / 1000) + (60 * 240),

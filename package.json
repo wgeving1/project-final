@@ -1,17 +1,17 @@
 {
-  "name": "debtly",
+  "name": "intensely",
   "version": "1.0.0",
   "description": "This package.json is purely for git hooks",
   "private": true,
-  "author": "Bryce Hayden",
+  "author": "William Geving",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QuietOmen/debtly.git"
+    "url": "git+https://github.com/QuietOmen/intensely.git"
   },
-  "homepage": "https://github.com/QuietOmen/debtly#readme",
+  "homepage": "https://github.com/QuietOmen/intensely#readme",
   "bugs": {
-    "url": "https://github.com/QuietOmen/debtly/issues"
+    "url": "https://github.com/QuietOmen/intensely/issues"
   },
   "keywords": [
     "React",

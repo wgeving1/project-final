@@ -33,7 +33,7 @@ class LoginPage extends Component {
     return (
       <Page>
         <Content>
-          <Title>Welcome to Debtly</Title>
+          <Title>Welcome to intensely</Title>
           <Description> Sign in with your information below</Description>
           
    

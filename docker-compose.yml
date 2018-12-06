@@ -1,8 +1,8 @@
 version: '3.3'
 
 services:
-  debtly-postgres:
-    container_name: debtly-postgres
+  intensely-postgres:
+    container_name: intensely-postgres
     restart: always
     environment:
       POSTGRES_USER: admin
@@ -15,8 +15,8 @@ services:
     networks:
       - 'backend-net'
 
-  debtly-api:
-    container_name: debtly-api
+  intensely-api:
+    container_name: intensely-api
     build:
       context: ./services/api
     ports:
@@ -29,15 +29,15 @@ services:
       port: '9001'
       BABEL_DISABLE_CACHE: 1
       JWT_SECRET: 'H34e626&D7'
-      JWT_COOKIE_NAME: 'pluralsight-token'
-      DATABASE_URL: 'postgres://admin:admin@debtly-postgres:5432/debtly'
-      DATABASE_TEST_URL: 'postgres://admin:admin@debtly-postgres:5432/debtly-integration'
+      JWT_COOKIE_NAME: 'intensely-token'
+      DATABASE_URL: 'postgres://admin:admin@intensely-postgres:5432/intensely'
+      DATABASE_TEST_URL: 'postgres://admin:admin@intensely-postgres:5432/intensely-integration'
     networks:
       - 'backend-net'
       - 'frontend-net'
 
-  debtly-web:
-    container_name: debtly-web
+  intensely-web:
+    container_name: intensely-web
     build:
       context: ./client
     ports:
@@ -47,13 +47,13 @@ services:
       NODE_ENV: 'development'
       CHOKIDAR_USEPOLLING: 1
       JWT_SECRET: 'H34e626&D7'
-      JWT_COOKIE_NAME: 'pluralsight-token'
+      JWT_COOKIE_NAME: 'intensely-token'
     volumes:
       - './client:/src/app'
       - '/src/app/node_modules'
     depends_on:
-      - 'debtly-postgres'
-      - 'debtly-api'
+      - 'intensely-postgres'
+      - 'intensely-api'
     networks:
       - 'frontend-net'
 

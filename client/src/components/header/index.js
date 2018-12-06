@@ -29,7 +29,7 @@ class Header extends Component {
       <HeaderContainer>
         <Link to={logoLink}>
             <LogoContainer>
-              Debtly
+              intensely
             </LogoContainer>
         </Link>
         <ActiveLink>

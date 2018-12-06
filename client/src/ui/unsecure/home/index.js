@@ -6,7 +6,7 @@ class Homepage extends Component {
     return (
       <Page>
         <Content>
-          Welcome to Debtly.
+          Welcome to intensely.
         </Content>
       </Page>
     )

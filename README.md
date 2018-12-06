@@ -1,10 +1,10 @@
-# Debtly Monolith
-Debtly Monolith is the base project used to build an minimal viable product.
+# intensely Monolith
+intensely Monolith is the base project used to build an minimal viable product.
 Postgresql is the main database, node and express are used for the api, and react with redux-saga for the UI.
 
 # Getting Started
 
-The following is an explanation for getting debtly-monolith runing on your local machine. These instructions do not include any instructions for use with windows (these will be added at a later date).
+The following is an explanation for getting intensely-monolith runing on your local machine. These instructions do not include any instructions for use with windows (these will be added at a later date).
 
 ## Setup
 
@@ -13,10 +13,10 @@ The following is an explanation for getting debtly-monolith runing on your local
     1. Run the following command `git config --global user.email "email@example.com"` (replace with your own email that is used for gitlab).
     1. Use cd to move to the directory within your OS where you'd like to save the repo (ex `cd Documents`).
     1. If you have setup ssh capabilities on gitlab:
-        1. Run the following command `git clone git@github.com:QuietOmen/debtly.git`.
+        1. Run the following command `git clone git@github.com:QuietOmen/intensely.git`.
     1. If you haven't setup ssh and simply want to type in your password each time:
-        1. Run the following command `git clone https://github.com/QuietOmen/debtly.git`.
-    1. Move into the newly cloned directory by running `cd debtly-monolith`.
+        1. Run the following command `git clone https://github.com/QuietOmen/intensely.git`.
+    1. Move into the newly cloned directory by running `cd intensely-monolith`.
 
 ### OSX Only Steps - One time only
 1. Install [docker ce](https://store.docker.com/editions/community/docker-ce-desktop-mac).
