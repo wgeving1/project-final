@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Button, Icon, Input } from 'semantic-ui-react'
-// import * as process from './process'
 import { Redirect } from 'react-router-dom'
 import connected from '../../../state/setup/connect'
 import { Page, Content, Form, Row } from './styles'

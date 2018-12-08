@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Icon } from 'semantic-ui-react'
 
@@ -11,7 +11,7 @@ class Footer extends Component {
     return (
       <FooterContainer>
         <div className="copyright">
-          <Icon name="copyright" />intensely 2018. All rights resevered
+          <Icon name="copyright" />Intensely Games 2018. All rights reserved.
         </div>
       </FooterContainer>
     )
