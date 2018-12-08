@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Button, Icon, Input } from 'semantic-ui-react'
 // import * as process from './process'
+import { Redirect } from 'react-router-dom'
 import connected from '../../../state/setup/connect'
 import { Page, Content, Form, Row } from './styles'
 import * as registerActions from '../../../state/processes/register/actions'
+import { selector as users } from '../../../state/entities/users/reducer'
+
 class CreateAccount extends Component {
   constructor(props) {
     super(props)
@@ -13,7 +16,14 @@ class CreateAccount extends Component {
       username: '',
       password: '',
       confirmedPassword: '',
-      email: ''
+      email: '',
+      registered: false
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(!this.props.users.active.userHandle && nextProps.user.active.userHandle) {
+      this.setState({ registered: true })
     }
   }
 
@@ -27,6 +37,9 @@ class CreateAccount extends Component {
   }
 
   render() {
+    if(this.state.registered) {
+      return <Redirect to={{ pathname: '/landing', state: { from: this.props.location } }} />
+    }
     return (
       <Page>
         <Content>
@@ -60,4 +73,4 @@ class CreateAccount extends Component {
   }
 }
 
-export default (connected([], [registerActions])(CreateAccount))
+export default (connected([users], [registerActions])(CreateAccount))

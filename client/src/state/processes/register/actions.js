@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 
 import * as api from './api'
 import TYPES from './types'
-
+import LocalStorage from '../../../utilities/local-storage'
 export const name = 'registerActions'
   
 
@@ -37,7 +37,9 @@ export function* executeRegisterUser({ email,
     firstName,
     surname)
   try {
+    LocalStorage.remove()
     const res = yield call(api.registerUser.request, url, body)
+    LocalStorage.set(res.data.token)
     yield put(registerUserSuccess(res.data))
   } catch (res) {
     // eslint-disable-next-line noconsole
@@ -49,6 +51,8 @@ export function* executeRegisterUser({ email,
 export function registerUserSuccess() {
   return {
     type: TYPES.REGISTER_USER_SUCCESS,
+    user: data.user,
+    admin: data.admin
   }
 }
 
