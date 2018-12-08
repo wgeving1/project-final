@@ -1,4 +1,4 @@
-import { authinticateLogin } from '../../commands/auth'
+import { authenticateLogin } from '../../commands/auth'
 import wrapAsyncFunc from '../../../common/async-wrapper'
 
 export default class AuthController {
@@ -11,7 +11,7 @@ export default class AuthController {
 
   async login(req, res) {
     const { email, password } = req.body
-    const results = await authinticateLogin(email, password)
+    const results = await authenticateLogin(email, password)
     res.send(results)
   }
 
@@ -20,7 +20,7 @@ export default class AuthController {
     res.send({
       user: {
         firstName: token.firstName,
-        lastName: token.lastName,
+        surname: token.surname,
         middleName: token.middleName,
         suffix: token.suffix,
         userHandle: token.userHandle,

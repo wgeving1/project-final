@@ -9,13 +9,14 @@ export const initialState = {
   loading: false
 }
 
-const fetchingUserData = (state, { admin, user }) => ({
+const fetchingUserData = (state) => ({
   ...state,
   loading: true
 })
 
 const loginUser = (state, { admin, user }) => ({
   ...state,
+  loading: false,
   active: {
     ...user,
     admin

@@ -8,7 +8,7 @@ export default class RegisterController {
 
   async registerUser(req, res) {
     const { email, firstName, surname, username, confirmedPassword, password } = req.body
-    const results = await registerNewUser(email, firstName, surname, username, confirmedPassword, password)
+    const results = await registerNewUser({ email, firstName, surname, username, confirmedPassword, password })
     res.send(results)
   }
 }

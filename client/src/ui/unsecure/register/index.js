@@ -22,7 +22,7 @@ class CreateAccount extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(!this.props.users.active.userHandle && nextProps.user.active.userHandle) {
+    if(!this.props.users.active.userHandle && nextProps.users.active.userHandle) {
       this.setState({ registered: true })
     }
   }
@@ -33,7 +33,8 @@ class CreateAccount extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.registerActions.registerUser({...this.state})
+    const { registered, ...params } = this.state
+    this.props.registerActions.registerUser({...params})
   }
 
   render() {

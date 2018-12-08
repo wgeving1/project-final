@@ -8,12 +8,10 @@ export async function login(userHandle) {
     userHandle: row.user_handle,
     passhash: row.passhash
   }))
-
   return userAuths[0]
 }
 export async function createPasshashEntry(userHandle, hash) {
   const statement = sql`insert into passhash(user_handle, passhash) values (${userHandle}, ${hash}) on conflict do nothing;`
-
   await PGWrapper.sql(statement)
 }
   

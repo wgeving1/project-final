@@ -5,7 +5,7 @@ import { login } from '../repositories/auth'
 import { fetchUserByEmail } from '../repositories/users'
 import { verifyAdmin } from '../repositories/admins'
 
-export async function authinticateLogin(email, password) {
+export async function authenticateLogin(email, password) {
   if (!email || !password) {
     throw new StatusError({ status: 400, msg: 'Must provide username or password' })
   }
@@ -23,7 +23,7 @@ export async function authinticateLogin(email, password) {
       'iat': Math.floor(Date.now() / 1000),
       'exp': Math.floor(Date.now() / 1000) + (60 * 240),
       firstName: user.firstName,
-      lastName: user.lastName,
+      surname: user.surname,
       middleName: user.middleName,
       suffix: user.suffix,
       userHandle: user.userHandle,
@@ -42,7 +42,7 @@ export async function authinticateLogin(email, password) {
   }
 }
 
-export async function authinticateLoginByJwt(token) {
+export async function authenticateLoginByJwt(token) {
   jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
     if (err)
       throw new StatusError({ status: 400, msg: 'JWT login problem' })

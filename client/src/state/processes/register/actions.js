@@ -36,19 +36,20 @@ export function* executeRegisterUser({ email,
     confirmedPassword, 
     firstName,
     surname)
+  console.log("HERE", email, username, password, confirmedPassword, firstName, surname)
   try {
     LocalStorage.remove()
     const res = yield call(api.registerUser.request, url, body)
     LocalStorage.set(res.data.token)
     yield put(registerUserSuccess(res.data))
-  } catch (res) {
+  } catch (err) {
     // eslint-disable-next-line noconsole
-    console.error('Request failed with', res.error)
+    console.error('Request failed with', err)
     yield put(registerUserFailure())
   }
 }
 
-export function registerUserSuccess() {
+export function registerUserSuccess(data) {
   return {
     type: TYPES.REGISTER_USER_SUCCESS,
     user: data.user,
