@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
 import { Button, Icon, Input } from 'semantic-ui-react'
 // import * as process from './process'
 import connected from '../../../state/setup/connect'
 import { Page, Content, Form, Row } from './styles'
-
+import * as registerActions from '../../../state/processes/register/actions'
 class CreateAccount extends Component {
   constructor(props) {
     super(props)
     this.state = {
       firstName: '',
-      lastName: '',
+      surname: '',
       username: '',
       password: '',
       confirmedPassword: '',
@@ -19,23 +18,22 @@ class CreateAccount extends Component {
   }
 
   handleInput = field => event => {
-    // eslint-disable-next-line no-console
     this.setState({ [field]: event.target.value })
   }
 
-  handleSubmit = () => {
-    const { username, password } = this.state
-    this.props.login.fetch(username, password)
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.registerActions.registerUser({...this.state})
   }
 
   render() {
     return (
       <Page>
         <Content>
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
             <Row>
               <Input placeholder="First name" type="text" onChange={this.handleInput('firstName')} />
-              <Input placeholder="Last name" type="text" onChange={this.handleInput('lastName')} />
+              <Input placeholder="Last name" type="text" onChange={this.handleInput('surname')} />
             </Row>
             <Row>
               <Input icon="user" placeholder="Username" type="text" onChange={this.handleInput('username')} />
@@ -49,7 +47,7 @@ class CreateAccount extends Component {
             <Row>
               <Input icon="lock" placeholder="Confirm password" type="password" onChange={this.handleInput('confirmedPassword')} />
             </Row>
-            <Button type="button" animated color="green" onClick={this.handleSubmit}>
+            <Button type="submit" animated color="green">
               <Button.Content visible>Create Account</Button.Content>
               <Button.Content hidden>
                 <Icon name="right arrow" />
@@ -62,4 +60,4 @@ class CreateAccount extends Component {
   }
 }
 
-export default withRouter(connected([], [])(CreateAccount))
+export default (connected([], [registerActions])(CreateAccount))
