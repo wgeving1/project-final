@@ -4,6 +4,7 @@ import wrapAsyncFunc from '../../../common/async-wrapper'
 export default class RegisterController {
   constructor(router) {
     router.post('/register', wrapAsyncFunc(this.registerUser))
+    // router.get('/recover/:email', wrapAsyncFunc(this.))
   }
 
   async registerUser(req, res) {
@@ -11,4 +12,8 @@ export default class RegisterController {
     const results = await registerNewUser({ email, firstName, surname, username, confirmedPassword, password })
     res.send(results)
   }
+  // async recoverPassword(req, res) {
+  //   const { email } = req.body
+  //   const results = await 
+  // }
 }

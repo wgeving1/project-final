@@ -29,7 +29,7 @@ export async function updateUsername(handle, val) {
   const results = await PGWrapper.sqlAndMap(statement, userMapper)
   return results[0]
 }
-export async function createUserEntry(email, firstName, surname, username) {
+export async function createUserEntry({ email, firstName, surname, username }) {
   const statement = sql`insert into users (email, first_name, surname, username) values (${email}, ${firstName}, ${surname}, ${username}) returning *;`
   const results = await PGWrapper.sqlAndMap(statement, userMapper)
   return results[0]
