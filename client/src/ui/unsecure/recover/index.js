@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Button, Icon, Input } from 'semantic-ui-react'
-
 import { recoverProcess } from '../../../state/processes/auth/recover'
 import { Content, Description, Title, Error, Form, Page} from './styles.js'
 

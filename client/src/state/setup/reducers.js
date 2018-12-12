@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 
 import users from '../entities/users/reducer'
+import games from '../entities/games/reducer'
 import LOGOUT_TYPES from '../processes/auth/logout/types'
 
 const appReducer = combineReducers({
-  users  
+  users,
+  games  
 })
 
 export default (state, action) => {
