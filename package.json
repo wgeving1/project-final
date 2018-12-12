@@ -34,5 +34,8 @@
       "pre-push": "npm run pre-push",
       "...": "..."
     }
+  },
+  "dependencies": {
+    "styled-components": "^4.1.2"
   }
 }
