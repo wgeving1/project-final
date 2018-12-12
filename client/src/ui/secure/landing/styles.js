@@ -12,3 +12,14 @@ export const Page = styled('div')`
     ". . .";
   background-color: #f4f4f4;
 `
+export const Sidenav = styled('div')`
+height: auto;
+width: 250px;
+display: flex;
+flex: 0 1 auto;
+background-color: dodgerblue;
+flex-shrink: 0;
+overflow-y: auto;
+text-color: black;
+box-shadow: 0px -5px 10px 0px rgba(0,0,0,0.1);  
+`
