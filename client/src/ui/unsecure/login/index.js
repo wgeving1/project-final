@@ -33,8 +33,8 @@ class LoginPage extends Component {
     return (
       <Page>
         <Content>
-          <Title>Welcome to intensely</Title>
-          <Description> Sign in with your information below</Description>
+          <Title>Welcome to Intensely Games!</Title>
+          <Description> Sign in with your information below:</Description>
           
    
           <Form onSubmit={this.handleSubmit}>

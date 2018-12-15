@@ -1,7 +1,7 @@
 import sql from 'sql-template-strings'
 import PGWrapper from '../../common/pg-wrapper'
 
-const userMapper = (row) => ({
+export const userMapper = (row) => ({
   userHandle: row.user_handle,
   username: row.username,
   firstName: row.first_name,
