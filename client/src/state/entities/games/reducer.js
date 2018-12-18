@@ -2,7 +2,8 @@ import TYPES from '../../processes/games/types'
 
 export const initialState = {
 queued: [],
-inGame: false
+inGame: false, 
+redirectToGameId: null
 }
 
 const loadQueuedData = (state, {userHandle, queued} ) => {
@@ -19,11 +20,15 @@ const addedToQueued = (state, { queued } ) => ({
     queued, 
     inGame: true
   })
-
+  const inviteAcceptedRedirectToGame = (state, { gameId } ) => ({
+    ...state, 
+    redirectToGameId: gameId
+  })
 
 const handlers = {
   [TYPES.FETCH_SUCCESS]: loadQueuedData,
-  [TYPES.ADD_TO_QUEUE_SUCCESS]: addedToQueued
+  [TYPES.ADD_TO_QUEUE_SUCCESS]: addedToQueued,
+  [TYPES.ACCEPT_INVITE_TO_PLAY_SUCCESS]: inviteAcceptedRedirectToGame
 }
 
 export default function(state = initialState, action = {}) {

@@ -9,6 +9,7 @@ import Footer from '../components/footer'
 import Landing from './secure/landing'
 import Profile from './secure/profile'
 import SignOut from './secure/sign-out'
+import PlayTicTacToe from './secure/tic-tac-toe'
 
 // 404 Page
 import BadRequest from './unsecure/bad-request/'
@@ -45,7 +46,7 @@ class App extends Component {
                     <Route exact path="/reset-password" component={Reset} />,
                     <Route exact path="/faqs" component={FAQs} />,
                     <Route exact path="/contact-us" component={ContactUs} />,
-
+                    <Route path="/tic-tac-toe/:id" component={PlayTicTacToe} />,
                     <Route exact path="/sign-out" component={SignOut} />
                     <Route path="/landing" component={Landing} />
                     <Route exact path="/profile" component={Profile} />

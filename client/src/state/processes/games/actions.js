@@ -75,10 +75,60 @@ export function inviteToGameSuccess(data) {
   }
 }
 
+export function acceptInviteToPlay(userHandle, gameId) {
+  return {
+    type: TYPES.ACCEPT_INVITE_TO_PLAY_REQUEST, 
+    userHandle, 
+    gameId
+  }
+}
+
+export function* executeAcceptInviteToPlay( { userHandle, gameId }) {
+  const url = api.acceptInviteToPlay.formatUrl()
+  try {
+    yield call(api.acceptInviteToPlay.request, url, { userHandle, gameId })
+    yield put(acceptInviteToPlaySuccess())
+  } catch (err) {
+    console.error('Request failed with', err)
+  }
+}
+
+export function acceptInviteToPlaySuccess(gameId) {
+  return {
+    type: TYPES.ACCEPT_INVITE_TO_PLAY_SUCCESS, 
+    gameId
+  }
+}
+export function fetchTicTacToeGame(gameId) {
+  return {
+    type: TYPES.FETCH_TIC_TAC_TOE_GAME_REQUEST, 
+    gameId
+  }
+}
+
+export function* executefetchTicTacToeGame( { gameId }) {
+  const url = api.fetchTicTacToeGame.formatUrl()
+  try {
+    yield call(api.fetchTicTacToeGame.request, url)
+    yield put(fetchTicTacToeGameSuccess())
+  } catch (err) {
+    console.error('Request failed with', err)
+  }
+}
+
+export function fetchTicTacToeGameSuccess(gameId) {
+  return {
+    type: TYPES.FETCH_TIC_TAC_TOE_GAME_SUCCESS, 
+    gameId
+  }
+}
 const sagas = [
   takeLatest(TYPES.FETCH_REQUEST, executeFetch),
   takeLatest(TYPES.ADD_TO_QUEUE_REQUEST, executeAddToQueue), 
-  takeLatest(TYPES.INVITE_REQUEST, executeInviteToGame)
+  takeLatest(TYPES.INVITE_REQUEST, executeInviteToGame),
+  takeLatest(TYPES.ACCEPT_INVITE_TO_PLAY_REQUEST, executeAcceptInviteToPlay),
+  takeLatest(TYPES.FETCH_TIC_TAC_TOE_GAME_REQUEST, executefetchTicTacToeGame)
+
 ]
 
 export default sagas

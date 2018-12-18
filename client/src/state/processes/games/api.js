@@ -12,4 +12,11 @@ export const inviteUser = {
   formatUrl: () => `/games/tic-tac-toe/invite`,
   request: (url, body) => axiosWrapper.post(url, body)
 }
-
+export const acceptInviteToPlay = {
+  formatUrl: () => `/games/tic-tac-toe/accept`,
+  request: (url, body) => axiosWrapper.put(url, body)
+}
+export const fetchTicTacToeGame = {
+  formatUrl: () => `/games/play/tic-tac-toe/${id}`,
+  request: (url) => axiosWrapper.put(url)
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { Page} from './styles'
 import * as gamesActions from '../../../../state/processes/games/actions'
 import { Icon } from 'semantic-ui-react'
@@ -25,10 +26,18 @@ class TicTacToe extends Component {
     event.preventDefault()
     this.props.gamesActions.inviteToGame(userHandle)
   }
+  handlePlay = (event, userHandle, gameId) => {
+    event.preventDefault()
+    this.props.gamesActions.acceptInviteToPlay(userHandle, gameId)
+  }
   render() {
     const {active: { userHandle } } = this.props.users
-    const {queued, inGame } = this.props.games
-
+    const {queued, inGame, redirectToGameId } = this.props.games
+    if(redirectToGameId) {
+      return (
+        <Redirect to={`tic-tac-toe/${redirectToGameId}`}/>
+      )
+    }
     return (
       <Page>
             {
@@ -38,18 +47,23 @@ class TicTacToe extends Component {
             }
             <ul>
             {queued.map((u,i) => {
-              const u_status = 'waiting'
-              if(userHandle === u.userHandle)
+              if(userHandle === u.userHandle) {
                 return (
                 <div key={i}> {u.username} (You) </div>
-              )
-                if(u_status === 'waiting') {
-                  return (
-                  <div key={i}>{u.username} 
-                      <Icon name="hourglass half"/>
-                  </div>
-                  )
-              }
+                )
+              } else if(u.status === 'waiting') {
+                // cancel the request
+                return (
+                <div key={i}>{u.username} 
+                    <Icon name="hourglass half" onClick={(event) => this.handleInvite(event, u.userHandle)}/>
+                </div>
+                )
+              } else if(u.status = 'invited')
+                return (
+                <div key={i}>{u.username} 
+                    <Icon name="gamepad" onClick={(event) => this.handlePlay(event, u.userHandle, u.gameId)}/>
+                </div>  
+                )
               else {
                 return (
                   <div key={i}>{u.username}
