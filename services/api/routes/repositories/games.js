@@ -38,14 +38,14 @@ export async function addUserToQueuedData(userHandle) {
 //   const query = sql`;`
 // }
 
-export async function acceptInviteUserDB(current, inviter) {
-  const statement = sql`update game_status set player_two_status = 'accepted',
-                        player_one_status = 'invited'
-                        where player_one_handle = ${inviter}
-                        and player_two_handle = ${current}
-                        and player_two_status = 'invited';`
-  const 
-}
+// export async function acceptInviteUserDB(current, inviter) {
+//   const statement = sql`update game_status set player_two_status = 'accepted',
+//                         player_one_status = 'invited'
+//                         where player_one_handle = ${inviter}
+//                         and player_two_handle = ${current}
+//                         and player_two_status = 'invited';`
+//   const 
+// }
 // export async function fetchTicToeGameDataDB(id) {
 //   const query = sql`select * from users where user_handle in (
 //                       select player_one_handle, player_two_handle

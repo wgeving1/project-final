@@ -10,10 +10,10 @@ export async function addUserToQueue(userHandle) {
     const queued = await fetchTicTacToeQueueData(userHandle)
     return { queued }
 }
-export async function inviteUserToGame(userHandle) {
-    await inviteUserToGameData(userHandle)
-    const 
-}
+// export async function inviteUserToGame(userHandle) {
+//     await inviteUserToGameData(userHandle)
+//     const 
+// }
 
 export async function acceptInviteFromUser(current, inviter) {
     await acceptInviteUserDB(current, inviter)

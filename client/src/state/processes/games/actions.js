@@ -110,7 +110,7 @@ export function* executefetchTicTacToeGame( { gameId }) {
   const url = api.fetchTicTacToeGame.formatUrl()
   try {
     yield call(api.fetchTicTacToeGame.request, url)
-    yield put(fetchTicTacToeGameSuccess())
+    yield put(fetchTicTacToeGameSuccess(gameId))
   } catch (err) {
     console.error('Request failed with', err)
   }

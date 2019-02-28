@@ -17,6 +17,6 @@ export const acceptInviteToPlay = {
   request: (url, body) => axiosWrapper.put(url, body)
 }
 export const fetchTicTacToeGame = {
-  formatUrl: () => `/games/play/tic-tac-toe/${id}`,
+  formatUrl: () => `/games/play/tic-tac-toe/:id`,
   request: (url) => axiosWrapper.put(url)
 }

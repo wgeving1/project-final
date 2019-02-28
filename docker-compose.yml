@@ -11,7 +11,7 @@ services:
     build:
       context: ./services/db
     ports:
-      - '5432:5432'
+      - '5433:5433'
     networks:
       - 'backend-net'
 
@@ -30,8 +30,8 @@ services:
       BABEL_DISABLE_CACHE: 1
       JWT_SECRET: 'H34e626&D7'
       JWT_COOKIE_NAME: 'intensely-token'
-      DATABASE_URL: 'postgres://admin:admin@intensely-postgres:5432/intensely'
-      DATABASE_TEST_URL: 'postgres://admin:admin@intensely-postgres:5432/intensely-integration'
+      DATABASE_URL: 'postgres://admin:admin@intensely-postgres:5433/intensely'
+      DATABASE_TEST_URL: 'postgres://admin:admin@intensely-postgres:5433/intensely-integration'
     networks:
       - 'backend-net'
       - 'frontend-net'
